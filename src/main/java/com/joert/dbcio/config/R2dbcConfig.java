@@ -1,6 +1,7 @@
 package com.joert.dbcio.config;
 
 import com.joert.dbcio.common.CommonAuditorAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -22,10 +23,12 @@ import org.springframework.data.relational.core.mapping.RelationalPersistentProp
 @EnableR2dbcAuditing
 public class R2dbcConfig {
 
+    @Autowired
+    private CommonAuditorAware commonAuditorAware;
 
     @Bean
     public ReactiveAuditorAware<String> auditorAware() {
-        return new CommonAuditorAware();
+        return commonAuditorAware;
     }
 
     @Bean

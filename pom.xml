@@ -8,13 +8,15 @@
         <version>3.0.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.joert</groupId>
     <artifactId>dbcio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dbcio</name>
     <description>dbcio</description>
     <properties>
         <java.version>17</java.version>
+        <r2bdc.version>1.0.0</r2bdc.version>
+        <jwt.version>0.11.2</jwt.version>
     </properties>
     <dependencies>
         <dependency>
@@ -25,7 +27,7 @@
         <dependency>
             <groupId>io.asyncer</groupId>
             <artifactId>r2dbc-mysql</artifactId>
-            <version>1.0.0</version>
+            <version>${r2bdc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,18 +45,18 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
-            <version>0.11.2</version>
+            <version>${jwt.version}</version>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
-            <version>0.11.2</version>
+            <version>${jwt.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-jackson</artifactId>
-            <version>0.11.2</version>
+            <version>${jwt.version}</version>
             <scope>runtime</scope>
         </dependency>
 

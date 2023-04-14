@@ -21,9 +21,10 @@ jwt:
 
 xiaos:
   ignore: |
-    /login,
-    /refresh-token,
     /user/info
+  ignore-global: |
+    /login,
+    /refresh-token
   cloud:
     register:
       namespace: cb64289f-e849-4fa5-ad04-a097defdd7d4

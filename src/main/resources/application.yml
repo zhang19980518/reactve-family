@@ -1,0 +1,42 @@
+server:
+  port: 8023
+spring:
+  r2dbc:
+    username: root
+    password: Zyc19980518@
+    url: r2dbc:mysql://${xiaos.datasource.host}:${xiaos.datasource.port}/${xiaos.datasource.database}?${xiaos.datasource.params}
+  data:
+    redis:
+      password: Zyc19980518@
+      host: localhost
+      port: 6379
+  jackson:
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+jwt:
+  secret: ly8YTgfvVwMGJFTWpiB1BN/Oi5dxrhnWtXGZecy7iQSqwmPOGstoVfj9s7Txy6QGLVxmpxAjFrVMA/SXqIz5Bw==
+  expiration: 360000
+  refresh-expiration: 6048000
+
+xiaos:
+  ignore: |
+    /login,
+    /refresh-token,
+    /user/info
+  cloud:
+    register:
+      namespace: cb64289f-e849-4fa5-ad04-a097defdd7d4
+      group: dev
+      username: nacos
+      password: Zyc19980518@
+      host: 124.223.92.239
+      port: 8848
+  datasource:
+    database: xiaos-admin
+    params: useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    host: localhost
+    port: 3306
+  salt: JoertAdminXz12
+
+

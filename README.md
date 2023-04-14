@@ -2,13 +2,16 @@
 
 #### 介绍
 Spring Reactive
-
+支持权限控制到按钮级别
 
 #### 软件架构
 SpringBoot 3.0
 
 Spring Data R2DBC
-Spring Reactive Secirity
+
+Spring Reactive Security
+
+
 
 #### 安装教程
 

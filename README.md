@@ -12,12 +12,11 @@ Spring Data R2DBC
 Spring Reactive Security
 
 
+#### 待完成
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  封装通用返回
+2.  编写基本业务如 用户,菜单
+3.  考虑使用路由
 
 #### 使用说明
 

@@ -25,16 +25,8 @@ xiaos:
   ignore-global: |
     /login,
     /refresh-token
-  cloud:
-    register:
-      namespace: cb64289f-e849-4fa5-ad04-a097defdd7d4
-      group: dev
-      username: nacos
-      password: Zyc19980518@
-      host: 124.223.92.239
-      port: 8848
   datasource:
-    database: xiaos-admin
+    database: yj
     params: useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     host: localhost
     port: 3306

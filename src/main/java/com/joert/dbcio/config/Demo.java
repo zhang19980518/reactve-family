@@ -27,8 +27,8 @@ public class Demo {
         byte[] decodedKey = Base64.getDecoder().decode(base64Key);
         SecretKey secKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "HmacSHA512");
         Jws<Claims> claimsJws = Jwts.parser()
-                .setSigningKey(secKey)
-                        .parseClaimsJws("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MTQ0MzA2NywiZXhwIjoxNjgxNDQzNDI3fQ.XNBWTgMh-CXbygtPiDyj82Nv4vnf_GAN-teyMyFu9gxtOiZZpBo_gFKesSHo8ySH-ibF8h1prxMnje12zFhiSg");
-        System.out.println(claimsJws.getBody().getSubject());
+                .verifyWith(secKey)
+                        .build().parseSignedClaims("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MTQ0MzA2NywiZXhwIjoxNjgxNDQzNDI3fQ.XNBWTgMh-CXbygtPiDyj82Nv4vnf_GAN-teyMyFu9gxtOiZZpBo_gFKesSHo8ySH-ibF8h1prxMnje12zFhiSg");
+        System.out.println(claimsJws.getPayload().getSubject());
     }
 }

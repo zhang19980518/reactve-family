@@ -57,30 +57,27 @@ public class SecurityConfig {
                         .anyExchange().access(databaseReactiveAuthorizationManager)
                 )
                 .securityContextRepository(jwtAuthenticationFilter)
-                .csrf().disable()
-                .httpBasic().disable()
-                .formLogin().disable()
-                .exceptionHandling()
-                //定义未登录或需要重新登陆的
-                .authenticationEntryPoint((exchange, ex) -> {
-                    String path = exchange.getRequest().getPath().toString();
-                    if (ignoreGlobal.contains(path)) {
-                        return Mono.empty();
-                    } else {
-                        return customServerAuthenticationEntryPoint.commence(exchange, ex);
-                    }
-                })
-                //定义资源服务访问拒绝的
-                .accessDeniedHandler((exchange, ex) -> {
-                    String path = exchange.getRequest().getPath().toString();
-                    if (ignoreGlobal.contains(path)) {
-                        return Mono.empty();
-                    } else {
-                        return customAccessDeniedHandler.handle(exchange, ex);
-                    }
-                });
-
-
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
+                .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
+                .exceptionHandling(exceptionHandlingSpec -> exceptionHandlingSpec
+                        .authenticationEntryPoint((exchange, ex) -> {
+                            String path = exchange.getRequest().getPath().toString();
+                            if (ignoreGlobal.contains(path)) {
+                                return Mono.empty();
+                            } else {
+                                return customServerAuthenticationEntryPoint.commence(exchange, ex);
+                            }
+                        })
+                        .accessDeniedHandler((exchange, ex) -> {
+                            String path = exchange.getRequest().getPath().toString();
+                            if (ignoreGlobal.contains(path)) {
+                                return Mono.empty();
+                            } else {
+                                return customAccessDeniedHandler.handle(exchange, ex);
+                            }
+                        })
+                );
         return http.build();
     }
 

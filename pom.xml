@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.5</version>
+        <version>3.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.joert</groupId>
@@ -15,8 +15,8 @@
     <description>dbcio</description>
     <properties>
         <java.version>17</java.version>
-        <r2bdc.version>1.0.0</r2bdc.version>
-        <jwt.version>0.11.2</jwt.version>
+        <r2bdc.version>1.3.2</r2bdc.version>
+        <jwt.version>0.12.3</jwt.version>
     </properties>
     <dependencies>
         <dependency>
